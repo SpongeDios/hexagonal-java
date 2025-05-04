@@ -1,7 +1,8 @@
 package com.hector.hexagonal.app.infra.secondary.persistence;
 
 import com.hector.hexagonal.app.core.domain.User;
-import com.hector.hexagonal.app.core.ports.UserPort;
+import com.hector.hexagonal.app.core.ports.LoadUserPort;
+import com.hector.hexagonal.app.core.ports.SaveUserPort;
 import com.hector.hexagonal.app.infra.secondary.dto.UserEntity;
 import com.hector.hexagonal.app.infra.secondary.mapper.UserMapper;
 import com.hector.hexagonal.app.infra.secondary.persistence.dao.UserDao;
@@ -12,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class UserRepositoryAdapter implements UserPort {
+public class UserRepositoryAdapter implements LoadUserPort, SaveUserPort {
 
     private final UserDao userDao;
     private final UserMapper mapper;
